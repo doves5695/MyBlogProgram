@@ -25,7 +25,7 @@ export default {
 .ProfileContent img{
   display: inline-block;
   width: 100%;
-  height: 660px;
+  height: 620px;
 }
 .ProfileContent .loginControl {
   display: flex;
