@@ -1,32 +1,44 @@
 <template>
   <div class="header">
-    <div class="left">
-      <div class="navButton">
-        <i class="iconfont fenlei"></i>
-      </div>
-      <div class="navIcon">
-        <i class="iconfont navicon-wzgl"></i>
-        <span>MyBlog</span>
-      </div>
-    </div>
-    <div class="mid">
-      <form class="search">
-        <div class="searchLeft">
-          <i class="iconfont sousuo"></i>
-          <input type="search" class="searchContent" placeholder="请输入要搜索的内容" style="outline: none; border-width: 0" >
+      <div class="left" @click="goTO('/home')">
+        <div class="leftContent">
+          <div class="navButton">
+            <i class="iconfont fenlei"></i>
+          </div>
+          <div class="navIcon">
+            <i class="iconfont navicon-wzgl"></i>
+            <span>MyBlog</span>
+          </div>
         </div>
-        <div class="searchRight">
-          <input type="submit" class="searchIcon" style="outline: none; border-width: 0" value="搜索">
+      </div>
+      <div class="mid">
+        <form class="search">
+          <div class="searchLeft">
+            <i class="iconfont sousuo"></i>
+            <input type="search" class="searchContent" placeholder="请输入要搜索的内容" style="outline: none; border-width: 0" >
+          </div>
+          <div class="searchRight">
+            <input type="submit" class="searchIcon" style="outline: none; border-width: 0" value="搜索">
+          </div>
+        </form>
+      </div>
+      <div class="right">
+        <div class="rightContent" @click="goTO('/profile')">
+          <i class="iconfont icon-person"></i>
+          <img src="" alt="" style="display: none">
         </div>
-      </form>
-    </div>
-<!--    <div class="right">头像</div>-->
+      </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Header'
+  name: 'Header',
+  methods: {
+    goTO (path) {
+      this.$router.replace(path)
+    }
+  }
 }
 </script>
 
@@ -39,16 +51,25 @@ export default {
   height: 50px;
   background-color: #fff;
   align-items: center;
+  border-bottom: 2px solid #b6b6b4;
 }
+
 /*左侧样式*/
 .left {
   display: flex;
   position: absolute;
-  width: 20%;
+  width: 15%;
   height: 50px;
-  left: 20px;
+  left: 10px;
   align-items: center;
   cursor: pointer;
+}
+.left .leftContent {
+  width: 200px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .left .navButton {
   display: flex;
@@ -74,7 +95,7 @@ export default {
 .left .navIcon .navicon-wzgl {
   font-size: 32px;
   color: blue;
-  margin-right: 3px;
+  margin-right: 5px;
   text-shadow:3px 3px 3px pink
 }
 .left .navIcon span {
@@ -90,17 +111,17 @@ export default {
   height: 50px;
   justify-content: center;
   align-items: center;
-  left: 300px;
+  left: 350px;
 }
 .mid .search {
   display: flex;
+  width: 600px;
   height: 40px;
-  justify-content: center;
   align-items: center;
 }
 .mid .search .searchLeft {
   position: relative;
-  width: 500px;
+  width: 85%;
   height: 40px;
   border: 2px solid #e5e4e2;
   border-right: 0;
@@ -108,7 +129,7 @@ export default {
 }
 .mid .search .searchContent {
   position: absolute;
-  width: 80%;
+  width: 90%;
   height: 40px;
   left: 40px;
 }
@@ -120,17 +141,39 @@ export default {
   font-weight: bolder;
 }
 .mid .search .searchRight {
-   width: 100px;
+   width: 15%;
    height: 40px;
    border: 2px solid #e5e4e2;
    border-radius: 0 30px 30px 0;
  }
 .mid .search .searchRight .searchIcon {
-  width: 100%;
+  width: 90px;
   height: 40px;
   border-radius: 0 30px 30px 0;
   cursor: pointer;
   font-size: 24px;
   font-weight: bold;
 }
+
+/*右侧样式*/
+.right {
+  position: absolute;
+  display: flex;
+  width: 10%;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+  right: 20px;
+}
+.right .rightContent {
+  width: 100px;
+  height: 40px;
+  cursor: pointer;
+}
+.right .rightContent .icon-person {
+  font-size: 32px;
+  line-height: 40px;
+  color: #c0c0c0;
+}
+
 </style>
