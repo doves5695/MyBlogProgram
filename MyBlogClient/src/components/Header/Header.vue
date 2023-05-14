@@ -3,12 +3,12 @@
     <div class="headerContent">
       <div class="left">
         <div class="leftContent">
-          <div class="navButton">
-            <i class="iconfont fenlei"></i>
+          <div class="navButton" @click="goTO('/home')">
+            <slot name="goWhere"></slot>
           </div>
-          <div class="navIcon" @click="goTO('/home')">
-            <i class="iconfont navicon-wzgl"></i>
-            <span>MyBlog</span>
+          <div class="navIcon">
+            <slot name="icon"></slot>
+            <span>{{ title }}</span>
           </div>
         </div>
       </div>
@@ -23,9 +23,6 @@
           </div>
         </form>
       </div>
-      <div class="music">
-        <audio src="../../../static/music/backgroundMusic.mp3" autoplay="autoplay" loop="loop" preload="auto" controls="controls"></audio>
-      </div>
       <div class="right">
         <div class="rightContent" @click="goTO('/profile')">
           <i class="iconfont icon-person"></i>
@@ -37,17 +34,25 @@
 </template>
 
 <script>
+
+import Nav from '../Navigation/Navigation.vue'
+
 export default {
   name: 'Header',
+  components: {Nav},
   methods: {
     goTO (path) {
       this.$router.replace(path)
     }
+  },
+  props: {
+    title: String
   }
 }
 </script>
 
 <style>
+@import "../../common/css/index.css";
 /*头部背景样式*/
 .header {
   display: flex;
@@ -73,9 +78,10 @@ export default {
   height: 7vh;
   align-items: center;
   cursor: pointer;
+  left: 3%;
 }
 .left .leftContent {
-  width: 200px;
+  width: 100%;
   height: 5vh;
   display: flex;
   justify-content: center;
@@ -87,14 +93,16 @@ export default {
   height: 5vh;
   justify-content: center;
   align-items: center;
-  margin-right: 20px;
+  margin-right: 40px;
 }
-.left .navButton .fenlei {
-  font-size: 2vw;
-}
-.left .navButton .fenlei:hover {
-  transform:rotate(45deg);
-}
+/*.left .navButton .home {*/
+/*  font-size: 2vw;*/
+/*}*/
+/*.left .navButton .home:hover {*/
+/*  font-size: 2.5vw;*/
+/*  color: #848482;*/
+/*}*/
+
 .left .navIcon {
   display: flex;
   width: 80%;
@@ -104,15 +112,20 @@ export default {
   text-align: center;
   cursor: pointer;
 }
-.left .navIcon .navicon-wzgl {
-  font-size: 2vw;
-  color: blue;
-  margin-right: 2px;
-  text-shadow:3px 3px 3px pink
-}
+/*.left .navIcon .shuben {*/
+/*  font-size: 2.2vw;*/
+/*  color: #b6b6b4;*/
+/*  margin-right: 2px;*/
+/*}*/
 .left .navIcon span {
   font-weight: bolder;
   font-size: 2vw;
+  font-family: "阿里妈妈东方大楷 Regular";
+}
+.left .navIcon span:hover {
+  font-weight: bolder;
+  font-size: 2.2vw;
+  font-family: "阿里妈妈东方大楷 Regular";
 }
 
 /*中间样式*/
@@ -171,19 +184,7 @@ export default {
   font-size: 1.8vw;
   font-weight: bolder;
   line-height: 5vh;
-}
-
-.music {
-  position: absolute;
-  width: 3.15%;
-  height: 7vh;
-  border: 1px solid #ccc;
-  border-radius: 50px;
-  right: 16%;
-  overflow: hidden;
-}
-.music audio {
-  width: 100vw;
+  font-family: "阿里妈妈数黑体 Bold";
 }
 
 /*右侧样式*/
@@ -208,6 +209,10 @@ export default {
   font-size: 2vw;
   line-height: 5vh;
   color: #c0c0c0;
+}
+.right .rightContent .icon-person:hover {
+  font-size: 2.5vw;
+  color: black;
 }
 
 </style>

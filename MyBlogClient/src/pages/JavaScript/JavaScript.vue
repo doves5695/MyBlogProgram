@@ -1,11 +1,36 @@
 <template>
-  <div>JavaScrip</div>
+  <div>
+    <Header title="JavaScript">
+      <i class="iconfont OA-back" slot="goWhere" @click="$router.back()"></i>
+      <i class="iconfont JavaScript" slot="icon"></i>
+    </Header>
+    <Nav></Nav>
+  </div>
 </template>
 
 <script>
-export default {}
+import Header from '../../components/Header/Header.vue'
+import Nav from '../../components/Navigation/Navigation.vue'
+
+export default {
+  components: {
+    Header,
+    Nav
+  }
+}
 </script>
 
-<style scoped>
-
+<style>
+.OA-back {
+  font-size: 2vw;
+}
+.OA-back:hover {
+  font-size: 2.5vw;
+  color: #848482;
+}
+.JavaScript {
+  font-size: 2.2vw;
+  color: #ffd801;
+  margin-right: 2px;
+}
 </style>

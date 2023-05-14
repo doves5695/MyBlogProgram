@@ -1,8 +1,10 @@
 <template>
   <div>
-    <Header></Header>
+    <Header title="PersonalCenter">
+      <i class="iconfont home" slot="goWhere"></i>
+    </Header>
     <div class="ProfileContent">
-      <img src="./images/R.jpg" alt="">
+      <img src="./images/R.jpg" alt="" class="proImg">
       <div class="loginControl">
         <div class="loginWrap"></div>
       </div>
@@ -19,10 +21,17 @@ export default {
 </script>
 
 <style>
+.home {
+  font-size: 2vw;
+}
+.home:hover {
+  font-size: 2.5vw;
+  color: #848482;
+}
 .ProfileContent {
   position: relative;
 }
-.ProfileContent img{
+.ProfileContent .proImg{
   display: inline-block;
   width: 100%;
   height: 620px;

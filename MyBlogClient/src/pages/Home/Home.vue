@@ -1,67 +1,76 @@
 <template>
   <div>
-    <Header>我是首页</Header>
+    <Header title="MyBlog">
+      <i class="iconfont home" slot="goWhere"></i>
+      <i class="iconfont shuben" slot="icon"></i>
+    </Header>
     <div class="Content">
       <section class="selector">
-        <img class="lax lax_preset_blurInOut:180.5:20 lax_preset_slideY:722:95 lax_preset_slideX:722:95"  src="./images/home.jpg" alt="">
-        <div class="text" >
-          <h1 class="lax lax_preset_scaleInOut:158:0.5 lax_preset_fadeInOut:159:0">Welcome To My Blog</h1>
-        </div>
-        <div class="shape lax lax_preset_jiggle:150:31 lax_preset_spin:722:360"></div>
+          <img class="lax lax_preset_blurInOut:180.5:20 lax_preset_slideY:722:95 lax_preset_slideX:722:95"  src="./images/home.jpg" alt="">
+          <div class="text" >
+            <h1 class="lax lax_preset_scaleInOut:158:0.5 lax_preset_fadeInOut:159:0">Welcome to my blog, Next let me take you to learn the front end</h1>
+          </div>
+        <i class="iconfont qicheqianlian- lax lax_preset_fadeInOut:180.5:0 lax_preset_zigzag:200:236"></i>
       </section>
 
       <section class="selector">
-        <img class="lax lax_preset_blurInOut:180.5:20 lax_preset_slideY:722:95 lax_preset_slideX:722:95"
-             src="./images/html.jpg" alt="" @click="To('/html')">
-        <div class="text" >
-          <h1 class="lax lax_preset_scaleInOut:158:0.5 lax_preset_fadeInOut:159:0" @click="To('/html')">HyperText Markup Language</h1>
+        <div class="Wrap" @click="To('/html')">
+          <img class="lax lax_preset_blurInOut:180.5:20 lax_preset_slideY:722:95 lax_preset_slideX:722:95"
+               src="./images/html.jpg" alt="">
+          <div class="text" >
+            <h1 class="lax lax_preset_scaleInOut:158:0.5 lax_preset_fadeInOut:159:0">HyperText Markup Language</h1>
+          </div>
         </div>
-        <div class="shape lax lax_preset_jiggle:150:31 lax_preset_spin:722:360"></div>
       </section>
 
       <section class="selector">
-        <img class="lax lax_preset_fadeInOut:159:0 lax_preset_scaleOut:158:1 lax_preset_zigzag:163:150"
-             src="./images/css.jpg" alt="" @click="To('/css')">
-        <div class="text">
-          <h1 class="lax lax_preset_scaleOut:165.5:0.8 lax_preset_fadeOut:180.8:1" @click="To('/css')">Cascading Style Sheets</h1>
+        <div class="Wrap" @click="To('/css')">
+          <img class="lax lax_preset_fadeInOut:159:0 lax_preset_scaleOut:158:1 lax_preset_zigzag:163:150"
+               src="./images/css.jpg" alt="" >
+          <div class="text">
+            <h1 class="lax lax_preset_fadeInOut:180.5:0 lax_preset_seesaw:140:20">Cascading Style Sheets</h1>
+          </div>
         </div>
-        <div class="shape lax lax lax_preset_slideX:180.5:4 lax_preset_spin:350:360 lax_preset_fadeInOut:180.5:0"></div>
       </section>
 
       <section class="selector">
-        <img class="lax lax_preset_blurOur:180.5:20 lax_preset_zigzag:170:200"
-             src="./images/js.jpg" alt="" @click="To('/js')">
-        <div class="text">
-          <h1 class="lax lax_preset_blurOur:180.5:20 lax_preset_zigzag:170:200 lax_preset_jiggle:50:20" @click="To('/js')">JavaScript</h1>
+        <div class="Wrap" @click="To('/js')">
+          <img class="lax lax_preset_blurOur:180.5:20 lax_preset_zigzag:170:200"
+               src="./images/js.jpg" alt="" >
+          <div class="text">
+            <h1 class="lax lax_preset_blurOur:180.5:20 lax_preset_zigzag:170:200 lax_preset_jiggle:50:20">JavaScript</h1>
+          </div>
         </div>
-        <div class="shape lax lax_preset_blurInOut:180.5:20 lax_preset_fadeInOut:165:0 lax_preset_seesaw:117:2 lax_preset_spin:1194:360"></div>
       </section>
 
       <section class="selector">
-        <img class="lax lax_preset_blurOur:180.5:20 lax_preset_zigzag:170:200"
-             src="./images/Vue.jpg" alt="" @click="To('/vue')">
-        <div class="text">
-          <h1 class="lax lax_preset_blurOur:180.5:20 lax_preset_zigzag:170:200 lax_preset_jiggle:50:20" @click="To('/vue')">Reactive Components for Modern Web Interfaces</h1>
+        <div class="Wrap" @click="To('/vue')">
+          <img class="lax lax_preset_blurOur:180.5:20 lax_preset_zigzag:170:200"
+               src="./images/Vue.jpg" alt="" >
+          <div class="text">
+            <h1 class="lax lax_preset_blurOur:180.5:20 lax_preset_zigzag:170:200 lax_preset_jiggle:50:20">Reactive Components for Modern Web Interfaces</h1>
+          </div>
         </div>
-        <div class="shape lax lax_preset_blurInOut:180.5:20 lax_preset_fadeInOut:165:0 lax_preset_seesaw:117:2 lax_preset_spin:1194:360"></div>
       </section>
 
       <section class="selector">
-        <img class="lax lax_preset_blurOur:180.5:20 lax_preset_zigzag:170:200"
-             src="./images/Internet.jpg" alt="" @click="To('/internet')">
-        <div class="text">
-          <h1 class="lax lax_preset_blurOur:180.5:20 lax_preset_zigzag:170:200 lax_preset_jiggle:50:20" @click="To('/internet')">Computer NetWork</h1>
+        <div class="Wrap"  @click="To('/internet')">
+          <img class="lax lax_preset_blurOur:180.5:20 lax_preset_zigzag:170:200"
+               src="./images/Internet.jpg" alt="">
+          <div class="text">
+            <h1 class="lax lax_preset_blurOur:180.5:20 lax_preset_zigzag:170:200 lax_preset_jiggle:50:20">Computer NetWork</h1>
+          </div>
         </div>
-        <div class="shape lax lax_preset_blurInOut:180.5:20 lax_preset_fadeInOut:165:0 lax_preset_seesaw:117:2 lax_preset_spin:1194:360"></div>
       </section>
 
       <section class="selector">
-        <img class="lax lax_preset_blurOur:180.5:20 lax_preset_zigzag:170:200"
-             src="./images/help.jpg" alt="" @click="To('/help')">
-        <div class="text">
-          <h1 class="lax lax_preset_blurOur:180.5:20 lax_preset_zigzag:170:200 lax_preset_jiggle:50:20" @click="To('/help')">There must be something that can help you</h1>
+        <div class="Wrap" @click="To('/help')">
+          <img class="lax lax_preset_blurOur:180.5:20 lax_preset_zigzag:170:200"
+               src="./images/help.jpg" alt="" >
+          <div class="text">
+            <h1 class="lax lax_preset_blurOur:180.5:20 lax_preset_zigzag:170:200 lax_preset_jiggle:50:20">There must be something that can help you</h1>
+          </div>
         </div>
-        <div class="shape lax lax_preset_blurInOut:180.5:20 lax_preset_fadeInOut:165:0 lax_preset_seesaw:117:2 lax_preset_spin:1194:360"></div>
       </section>
     </div>
   </div>
@@ -82,6 +91,7 @@ export default {
 </script>
 
 <style>
+@import "../../common/css/index.css";
 * {
   margin: 0;
   padding: 0;
@@ -115,29 +125,45 @@ section:nth-child(6) {
 section:nth-child(7) {
   background-color: #3ea055;
 }
+.Wrap {
+  display: flex;
+  width: 45vw;
+  height: 45vh;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+}
 img {
-  width: 40vw;
-  height: 40vh;
+  width: 45vw;
+  height: 45vh;
   opacity: .6;
 }
 .text {
   position: absolute;
-  font-size: 72px;
+  font-size: 5vw;
   padding: 0 200px;
   color: #fff;
   text-align: center;
+  font-family: '阿里妈妈东方大楷 Regular';
 }
-.shape {
+.qicheqianlian- {
   position: absolute;
-  left: 8%;
-  top: 10%;
-  width: 300px;
-  height: 200px;
-  background-color: #000;
-  opacity: .3;
-}
-section:nth-child(3) .shape {
-  left: inherit;
+  font-size: 8vw;
+  z-index: 9;
+  color: #3bb9ff;
   right: 5%;
+  top: 2%;
+}
+.home {
+  font-size: 2vw;
+}
+.home:hover {
+  font-size: 2.5vw;
+  color: #848482;
+}
+.shuben {
+  font-size: 2.2vw;
+  color: #b6b6b4;
+  margin-right: 2px;
 }
 </style>
