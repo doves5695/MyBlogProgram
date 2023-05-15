@@ -3,8 +3,9 @@
     <Header title="PersonalCenter">
       <i class="iconfont home" slot="goWhere"></i>
     </Header>
+    <Nav></Nav>
     <div class="ProfileContent">
-      <img src="./images/R.jpg" alt="" class="proImg">
+      <img src="./images/profileBackground.jpg" alt="" class="proImg">
       <div class="loginControl">
         <div class="loginWrap"></div>
       </div>
@@ -14,9 +15,10 @@
 
 <script>
 import Header from '../../components/Header/Header.vue'
+import Nav from '../../components/Navigation/Navigation.vue'
 
 export default {
-  components: {Header}
+  components: {Nav, Header}
 }
 </script>
 
@@ -32,9 +34,9 @@ export default {
   position: relative;
 }
 .ProfileContent .proImg{
-  display: inline-block;
+  /*display: inline-block;*/
   width: 100%;
-  height: 620px;
+  height: 100%;
 }
 .ProfileContent .loginControl {
   display: flex;
@@ -46,9 +48,10 @@ export default {
   right: 80px;
   top: 40px;
   border-radius: 50px;
-  opacity: 0.9;
+  /*opacity: 0.9;*/
   justify-content: center;
   align-items: center;
+  z-index: 99;
 }
 .ProfileContent .loginControl .loginWrap {
   width: 350px;

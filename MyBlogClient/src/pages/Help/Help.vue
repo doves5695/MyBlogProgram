@@ -4,7 +4,10 @@
       <i class="iconfont OA-back" slot="goWhere" @click="$router.back()"></i>
       <i class="iconfont Help" slot="icon"></i>
     </Header>
-    <Nav></Nav>
+    <div class="HelpContent">
+      <Nav></Nav>
+      <img src="../Help/images/helpBackground.jpg" alt="" class="HelpImg">
+    </div>
   </div>
 </template>
 
@@ -32,5 +35,15 @@ export default {
   font-size: 2.2vw;
   color: #FF00FF;
   margin-right: 2px;
+}
+.HelpContent {
+  width: 100%;
+  height: 100%;
+}
+.HelpImg {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  opacity: .8;
 }
 </style>

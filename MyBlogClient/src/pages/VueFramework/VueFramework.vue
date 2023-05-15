@@ -4,7 +4,10 @@
       <i class="iconfont OA-back" slot="goWhere" @click="$router.back()"></i>
       <i class="iconfont Vue" slot="icon"></i>
     </Header>
-    <Nav></Nav>
+    <div class="VueContent">
+      <Nav></Nav>
+      <img src="../VueFramework/images/vueBackground.jpg" alt="" class="VueImg">
+    </div>
   </div>
 </template>
 
@@ -21,9 +24,26 @@ export default {
 </script>
 
 <style>
+.OA-back {
+  font-size: 2vw;
+}
+.OA-back:hover {
+  font-size: 2.5vw;
+  color: #848482;
+}
 .Vue {
   font-size: 2.2vw;
   color: #4cc552;
   margin-right: 2px;
+}
+.VueContent {
+  width: 100%;
+  height: 100%;
+}
+.VueImg {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  opacity: .8;
 }
 </style>

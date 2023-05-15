@@ -4,7 +4,10 @@
       <i class="iconfont OA-back" slot="goWhere" @click="$router.back()"></i>
       <i class="iconfont internet" slot="icon"></i>
     </Header>
-    <Nav></Nav>
+    <div class="IntContent">
+      <Nav></Nav>
+      <img src="../Internet/images/intBackground.jpg" alt="" class="IntImg">
+    </div>
   </div>
 </template>
 
@@ -32,5 +35,15 @@ export default {
   font-size: 2.2vw;
   color: #57feff;
   margin-right: 2px;
+}
+.IntContent {
+  width: 100%;
+  height: 100%;
+}
+.IntImg {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  opacity: .8;
 }
 </style>

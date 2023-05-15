@@ -12,7 +12,7 @@
       <li class="myhelp" @click="goTO('/help')">Help</li>
     </ul>
     <div class="music" v-show="isShow">
-      <audio src="../../../static/music/backgroundMusic.mp3" autoplay="" loop="" preload="auto" controls="controls"></audio>
+      <audio src="../../../static/music/backgroundMusic.mp3" controls="controls"></audio>
     </div>
   </div>
 </template>
@@ -42,24 +42,28 @@ export default {
   list-style: none;
 }
 .navWrap {
-  position: relative;
+  display: flex;
+  position: fixed;
   width: 100%;
-  height: 5vh;
-  background-color: #e5e4e2;
+  height: 9vh;
+  background-color: transparent;
+  z-index: 99;
+  align-items: center;
+  top: 10%;
 }
 .navWrap .navControl {
-  position: absolute;
+  position: fixed;
   display: flex;
   width: 5%;
-  height: 5vh;
+  height: 9vh;
   justify-content: center;
   align-items: center;
-  left: 3%;
+  left: 1%;
   cursor: pointer;
   z-index: 99;
 }
 .navWrap .navControl .fengche {
-  font-size: 1.8vw;
+  font-size: 4vw;
   font-weight: bolder;
   animation: rotate 10s linear infinite;
   -webkit-animation: rotate 10s linear infinite;
@@ -80,15 +84,15 @@ export default {
   100% {transform: rotate(360deg);}
 }
 .navWrap .navControl .fengche:hover {
-  font-size: 2vw;
+  font-size: 4.1vw;
   font-weight: bolder;
   color: #c0c0c0;
 }
 .navWrap .navContent {
-  position: absolute;
+  position: fixed;
   display: flex;
   width: 50vw;
-  height: 5vh;
+  height: 6vh;
   justify-content: center;
   align-items: center;
   left: 10%;
@@ -96,12 +100,12 @@ export default {
 }
 .navWrap .navContent li {
   width: 15%;
-  height: 5vh;
+  height: 6vh;
   text-align: center;
-  line-height: 5vh;
+  line-height: 6vh;
   border: 1px solid #fff;
-  border-radius: 25px;
-  margin:  1.2vh 2vw 0;
+  border-radius: 20px;
+  margin: 0 2vw;
   font-size: 1vw;
   font-weight: bolder;
   font-family: '阿里妈妈东方大楷 Regular';
@@ -115,17 +119,17 @@ export default {
   overflow: visible;
 }
 .music {
-  position: absolute;
+  position: fixed;
   display: flex;
   right: 25%;
   width: 15%;
-  height: 5vh;
+  height: 6vh;
   justify-content: center;
   align-items: center;
   z-index: 99;
 }
 audio {
-  height: 5vh;
-  margin: 1.2vh 2vw 0;
+  height: 6vh;
+  margin: 0 2vw;
 }
 </style>

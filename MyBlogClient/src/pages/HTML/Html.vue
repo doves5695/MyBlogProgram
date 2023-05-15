@@ -6,7 +6,7 @@
     </Header>
     <div class="HtmlContent">
       <Nav></Nav>
-      <img src="../HTML/images/R.jpg" alt="" class="HtmlImg">
+      <img src="../HTML/images/htmlBackground.jpg" alt="" class="HtmlImg">
     </div>
   </div>
 </template>
@@ -44,7 +44,6 @@ export default {
   position: relative;
   width: 100%;
   height: 100%;
-  top: -2.4vw;
   opacity: .8;
 }
 </style>

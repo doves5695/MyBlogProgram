@@ -4,7 +4,10 @@
       <i class="iconfont OA-back" slot="goWhere" @click="$router.back()"></i>
       <i class="iconfont JavaScript" slot="icon"></i>
     </Header>
-    <Nav></Nav>
+    <div class="JsContent">
+      <Nav></Nav>
+      <img src="../JavaScript/images/jsBackground.jpg" alt="" class="JsImg">
+    </div>
   </div>
 </template>
 
@@ -32,5 +35,15 @@ export default {
   font-size: 2.2vw;
   color: #ffd801;
   margin-right: 2px;
+}
+.JsContent {
+  width: 100%;
+  height: 100%;
+}
+.JsImg {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  opacity: .8;
 }
 </style>
