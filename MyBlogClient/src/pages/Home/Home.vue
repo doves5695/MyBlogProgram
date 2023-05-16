@@ -73,14 +73,17 @@
         </div>
       </section>
     </div>
+    <Nav></Nav>
   </div>
 </template>
 
 <script>
 import Header from '../../components/Header/Header.vue'
+import Nav from '../../components/Navigation/Navigation.vue'
 export default {
   components: {
-    Header
+    Header,
+    Nav
   },
   methods: {
     To (path) {

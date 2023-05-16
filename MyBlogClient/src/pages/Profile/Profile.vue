@@ -7,7 +7,13 @@
     <div class="ProfileContent">
       <img src="./images/profileBackground.jpg" alt="" class="proImg">
       <div class="loginControl">
-        <div class="loginWrap"></div>
+        <div class="loginWrap">
+            <h1 class="loginLogo">MyBlog</h1>
+            <div class="loginHeaderTitle">
+              <a href="javascript:;">短信登录</a>
+              <a href="javascript:;">密码登录</a>
+            </div>
+        </div>
       </div>
     </div>
   </div>
@@ -23,6 +29,7 @@ export default {
 </script>
 
 <style>
+@import "../../common/css/index.css";
 .home {
   font-size: 2vw;
 }
@@ -34,27 +41,39 @@ export default {
   position: relative;
 }
 .ProfileContent .proImg{
-  /*display: inline-block;*/
   width: 100%;
   height: 100%;
 }
 .ProfileContent .loginControl {
   display: flex;
   position: absolute;
-  width: 400px;
-  height: 500px;
+  width: 30%;
+  height: 70%;
   background-color: #fff;
-  tab-index: 5;
-  right: 80px;
-  top: 40px;
-  border-radius: 50px;
-  /*opacity: 0.9;*/
+  right: 4%;
+  top: 6%;
+  border-radius: 45px;
   justify-content: center;
   align-items: center;
-  z-index: 99;
+  z-index: 88;
 }
 .ProfileContent .loginControl .loginWrap {
-  width: 350px;
-  height: 450px;
+  position: relative;
+  width: 85%;
+  height: 90%;
+}
+.loginWrap .loginLogo {
+  position: absolute;
+  width: 12vw;
+  height: 8vh;
+  text-align: center;
+  line-height: 6vh;
+  font-size: 4vw;
+  font-family: '阿里妈妈东方大楷 Regular';
+  left: 23%;
+}
+.loginWrap .loginHeaderTitle {
+  position: absolute;
+  top: 15%;
 }
 </style>

@@ -22,7 +22,7 @@ export default {
   name: 'Nav',
   data () {
     return {
-      isShow: true
+      isShow: false
     }
   },
   methods: {
@@ -49,7 +49,7 @@ export default {
   background-color: transparent;
   z-index: 99;
   align-items: center;
-  top: 10%;
+  top: 8%;
 }
 .navWrap .navControl {
   position: fixed;
@@ -67,7 +67,7 @@ export default {
   font-weight: bolder;
   animation: rotate 10s linear infinite;
   -webkit-animation: rotate 10s linear infinite;
-  color: #c45aec;
+  color: #57feff;
 }
 @keyframes rotate {
   0% { transform: rotate(0);}
@@ -105,7 +105,7 @@ export default {
   line-height: 6vh;
   border: 1px solid #fff;
   border-radius: 20px;
-  margin: 0 2vw;
+  margin: 0 1.8vw;
   font-size: 1vw;
   font-weight: bolder;
   font-family: '阿里妈妈东方大楷 Regular';
@@ -130,6 +130,6 @@ export default {
 }
 audio {
   height: 6vh;
-  margin: 0 2vw;
+  margin: 0 1.8vw;
 }
 </style>
