@@ -11,7 +11,44 @@
             <h1 class="loginLogo">MyBlog</h1>
             <div class="loginHeaderTitle">
               <a href="javascript:;">短信登录</a>
-              <a href="javascript:;">密码登录</a>
+              <a href="javascript:;" >密码登录</a>
+            </div>
+            <div class="loginContent">
+              <form>
+                <div class="loginPhone">
+                  <div class="loginPhoneMessage">
+                    <input type="tel" maxlength="11" placeholder="手机号码">
+                    <button class="getVerification">获取验证码</button>
+                  </div>
+                  <div class="loginPhoneVerification">
+                    <input type="tel" maxlength="4" placeholder="验证码">
+                  </div>
+                  <div class="loginPhoneHint">
+                    温馨提示: 您的手机号尚未注册,登录时将自动注册
+                    <a href="javascript:;">《用户服务协议》</a>
+                  </div>
+                </div>
+                <div class="loginUsername" style="display: none">
+                  <div>
+                    <div class="loginUsernameMessage">
+                      <input type="text" maxlength="11" placeholder="手机/邮箱/用户名" />
+                    </div>
+                    <div class="loginUsernameVerification">
+                      <input type="text" maxlength="8" placeholder="密码">
+                      <input type="password" maxlength="8" placeholder="密码">
+                      <div class="switchButton">
+                        <div class="switchCircle"></div>
+                        <span class="switchText"></span>
+                      </div>
+                    </div>
+                    <div class="loginUsernameMessage">
+                      <input type="text" maxlength="11" placeholder="验证码">
+                      <img src="" alt="captcha">
+                    </div>
+                  </div>
+                </div>
+                <button class="loginSubmit">登录</button>
+              </form>
             </div>
         </div>
       </div>
@@ -36,6 +73,16 @@ export default {
 .home:hover {
   font-size: 2.5vw;
   color: #848482;
+}
+.loginHeaderTitle >a {
+  color: black;
+  font-size: 1.2vw;
+  margin: 0 0.8vw;
+}
+.loginHeaderTitle >a:hover {
+  color: #3ea055;
+  border-bottom: 0.5px solid #4cc552;
+  font-size: 1.4vw;
 }
 .ProfileContent {
   position: relative;
@@ -64,16 +111,54 @@ export default {
 }
 .loginWrap .loginLogo {
   position: absolute;
-  width: 12vw;
-  height: 8vh;
+  width: 15vw;
+  height: 6vw;
   text-align: center;
   line-height: 6vh;
   font-size: 4vw;
   font-family: '阿里妈妈东方大楷 Regular';
-  left: 23%;
+  left: 21%;
 }
 .loginWrap .loginHeaderTitle {
+  display: flex;
   position: absolute;
+  width: 20vw;
+  height: 4vw;
   top: 15%;
+  left: 10%;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+}
+.loginContent {
+  position: absolute;
+  width: 80%;
+  height: 60%;
+  top: 26%;
+  left: 12%;
+  /*margin: 0 auto;*/
+}
+.loginContent .loginPhone {
+
+}
+input {
+  width: 18vw;
+  height: 3vw;
+  border-color: #e5e4e2;
+  border-radius: 10px;
+  padding-left: 15px;
+  margin: 1vw 0;
+}
+.loginPhone .getVerification {
+  position: absolute;
+  width: 20%;
+  height: 6%;
+  left: 70%;
+  top: 9%;
+  background-color: transparent;
+  border: none;
+  color: #c0c0c0;
+  font-size: 0.6vw;
+  cursor: pointer;
 }
 </style>
