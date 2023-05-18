@@ -95,14 +95,6 @@ export default {
   align-items: center;
   margin-right: 40px;
 }
-/*.left .navButton .home {*/
-/*  font-size: 2vw;*/
-/*}*/
-/*.left .navButton .home:hover {*/
-/*  font-size: 2.5vw;*/
-/*  color: #848482;*/
-/*}*/
-
 .left .navIcon {
   display: flex;
   width: 80%;
@@ -112,11 +104,6 @@ export default {
   text-align: center;
   cursor: pointer;
 }
-/*.left .navIcon .shuben {*/
-/*  font-size: 2.2vw;*/
-/*  color: #b6b6b4;*/
-/*  margin-right: 2px;*/
-/*}*/
 .left .navIcon span {
   font-weight: bolder;
   font-size: 2vw;

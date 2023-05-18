@@ -17,11 +17,11 @@
               <form>
                 <div class="loginPhone">
                   <div class="loginPhoneMessage">
-                    <input type="tel" maxlength="11" placeholder="手机号码">
+                    <input class="loginInput" type="tel" maxlength="11" placeholder="手机号码">
                     <button class="getVerification">获取验证码</button>
                   </div>
                   <div class="loginPhoneVerification">
-                    <input type="tel" maxlength="4" placeholder="验证码">
+                    <input class="loginInput" type="tel" maxlength="4" placeholder="验证码">
                   </div>
                   <div class="loginPhoneHint">
                     温馨提示: 您的手机号尚未注册,登录时将自动注册
@@ -34,8 +34,8 @@
                       <input type="text" maxlength="11" placeholder="手机/邮箱/用户名" />
                     </div>
                     <div class="loginUsernameVerification">
-                      <input type="text" maxlength="8" placeholder="密码">
-                      <input type="password" maxlength="8" placeholder="密码">
+                      <input class="loginInput" type="text" maxlength="8" placeholder="密码">
+                      <input class="loginInput" type="password" maxlength="8" placeholder="密码">
                       <div class="switchButton">
                         <div class="switchCircle"></div>
                         <span class="switchText"></span>
@@ -112,9 +112,9 @@ export default {
 .loginWrap .loginLogo {
   position: absolute;
   width: 15vw;
-  height: 6vw;
+  height: 5vw;
   text-align: center;
-  line-height: 6vh;
+  line-height: 8vh;
   font-size: 4vw;
   font-family: '阿里妈妈东方大楷 Regular';
   left: 21%;
@@ -136,22 +136,21 @@ export default {
   height: 60%;
   top: 26%;
   left: 12%;
-  /*margin: 0 auto;*/
 }
 .loginContent .loginPhone {
 
 }
-input {
+.loginInput {
   width: 18vw;
   height: 3vw;
-  border-color: #e5e4e2;
-  border-radius: 10px;
+  border-radius: 15px;
   padding-left: 15px;
   margin: 1vw 0;
+  outline: #3ea055;
 }
 .loginPhone .getVerification {
   position: absolute;
-  width: 20%;
+  width: 60%;
   height: 6%;
   left: 70%;
   top: 9%;
@@ -160,5 +159,29 @@ input {
   color: #c0c0c0;
   font-size: 0.6vw;
   cursor: pointer;
+}
+.loginPhoneHint {
+  width: 18vw;
+  height: 4vw;
+  font-size: 1vw;
+}
+.loginPhoneHint >a {
+  color: #b1fb17;
+}
+.loginSubmit {
+  position: absolute;
+  width: 15vw;
+  height: 3.5vw;
+  left: 12%;
+  margin: 35px 0;
+  border-color: transparent;
+  border-radius: 20px;
+  font-size: 1.5vw;
+  font-weight: bolder;
+  cursor: pointer;
+  font-family: '阿里妈妈东方大楷 Regular';
+}
+.loginSubmit:hover {
+  height: 3.6vw;
 }
 </style>
