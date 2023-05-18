@@ -1,7 +1,7 @@
 <template>
   <div class="navWrap">
     <div class="navControl" @click="isShow = !isShow">
-      <i class="iconfont fengche"></i>
+      <i class="iconfont fengche" title="可控制背景音乐"></i>
     </div>
     <ul class="navContent" v-show="isShow">
       <li class="myhtml" @click="goTO('/html')">html</li>

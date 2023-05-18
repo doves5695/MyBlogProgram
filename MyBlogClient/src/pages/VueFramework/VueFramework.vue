@@ -6,7 +6,6 @@
     </Header>
     <div class="VueContent">
       <Nav></Nav>
-      <img src="../VueFramework/images/vueBackground.jpg" alt="" class="VueImg">
     </div>
   </div>
 </template>
@@ -38,12 +37,9 @@ export default {
 }
 .VueContent {
   width: 100%;
-  height: 100%;
-}
-.VueImg {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  opacity: .8;
+  height: 92.5vh;
+  background-image: url("../../pages/VueFramework/images/vueBackground.jpg");
+  background-position: 50%;
+  background-size: 100vw;
 }
 </style>

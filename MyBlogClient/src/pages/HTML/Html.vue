@@ -6,7 +6,6 @@
     </Header>
     <div class="HtmlContent">
       <Nav></Nav>
-      <img src="../HTML/images/htmlBackground.jpg" alt="" class="HtmlImg">
     </div>
   </div>
 </template>
@@ -38,12 +37,9 @@ export default {
 }
 .HtmlContent {
   width: 100%;
-  height: 100%;
+  height: 92.5vh;
+  background-image: url("../../pages/HTML/images/htmlBackground.jpg");
+  background-position: 50%;
 }
-.HtmlImg {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  opacity: .8;
-}
+
 </style>

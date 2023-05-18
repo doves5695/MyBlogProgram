@@ -6,7 +6,6 @@
     </Header>
     <div class="JsContent">
       <Nav></Nav>
-      <img src="../JavaScript/images/jsBackground.jpg" alt="" class="JsImg">
     </div>
   </div>
 </template>
@@ -38,12 +37,8 @@ export default {
 }
 .JsContent {
   width: 100%;
-  height: 100%;
-}
-.JsImg {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  opacity: .8;
+  height: 92.5vh;
+  background-image: url("../../pages/JavaScript/images/jsBackground.jpg");
+  background-position: 50%;
 }
 </style>

@@ -5,17 +5,16 @@
     </Header>
     <Nav></Nav>
     <div class="ProfileContent">
-      <img src="./images/profileBackground.jpg" alt="" class="proImg">
       <div class="loginControl">
         <div class="loginWrap">
             <h1 class="loginLogo">MyBlog</h1>
             <div class="loginHeaderTitle">
-              <a href="javascript:;">短信登录</a>
-              <a href="javascript:;" >密码登录</a>
+              <a href="javascript:;" :class="{on: loginWay}" @click="loginWay=true">短信登录</a>
+              <a href="javascript:;" :class="{on: !loginWay}" @click="loginWay=false">密码登录</a>
             </div>
             <div class="loginContent">
               <form>
-                <div class="loginPhone">
+                <div class="loginPhone" v-show="loginWay">
                   <div class="loginPhoneMessage">
                     <input class="loginInput" type="tel" maxlength="11" placeholder="手机号码">
                     <button class="getVerification">获取验证码</button>
@@ -28,22 +27,22 @@
                     <a href="javascript:;">《用户服务协议》</a>
                   </div>
                 </div>
-                <div class="loginUsername" style="display: none">
+                <div class="loginUsername" v-show="!loginWay">
                   <div>
                     <div class="loginUsernameMessage">
-                      <input type="text" maxlength="11" placeholder="手机/邮箱/用户名" />
+                      <input  class="loginInput" type="text" maxlength="11" placeholder="手机/邮箱/用户名" />
                     </div>
-                    <div class="loginUsernameVerification">
-                      <input class="loginInput" type="text" maxlength="8" placeholder="密码">
+                    <div class="loginUsernamePwdWay">
+                      <input class="loginInput" type="text" maxlength="8" placeholder="密码" hidden="hidden">
                       <input class="loginInput" type="password" maxlength="8" placeholder="密码">
                       <div class="switchButton">
                         <div class="switchCircle"></div>
                         <span class="switchText"></span>
                       </div>
                     </div>
-                    <div class="loginUsernameMessage">
-                      <input type="text" maxlength="11" placeholder="验证码">
-                      <img src="" alt="captcha">
+                    <div class="loginUsernameSvg">
+                      <input class="loginInput" type="text" maxlength="11" placeholder="验证码">
+                      <img class="loginSvg" src="./images/captcha.svg" alt="captcha">
                     </div>
                   </div>
                 </div>
@@ -61,7 +60,17 @@ import Header from '../../components/Header/Header.vue'
 import Nav from '../../components/Navigation/Navigation.vue'
 
 export default {
-  components: {Nav, Header}
+  data () {
+    return {
+      loginWay: true
+    }
+  },
+  components: {
+    Nav,
+    Header
+  },
+  methods: {
+  }
 }
 </script>
 
@@ -80,29 +89,37 @@ export default {
   margin: 0 0.8vw;
 }
 .loginHeaderTitle >a:hover {
-  color: #3ea055;
-  border-bottom: 0.5px solid #4cc552;
+  color: #6afb92;
+  border-bottom: 2px solid #6afb92;
+  font-size: 1.4vw;
+}
+.loginHeaderTitle  .on {
+  color: #6afb92;
+  border-bottom: 2px solid #6afb92;
   font-size: 1.4vw;
 }
 .ProfileContent {
   position: relative;
+  width: 100vw;
+  height: 92.5vh;
+  background-image: url("../../pages/Profile/images/profileBackground.jpg");
+  background-position: 40% 15%;
 }
-.ProfileContent .proImg{
-  width: 100%;
-  height: 100%;
-}
+/*.ProfileContent .proImg{*/
+/*  width: 100%;*/
+/*  height: 100%;*/
+/*}*/
 .ProfileContent .loginControl {
   display: flex;
   position: absolute;
   width: 30%;
-  height: 70%;
+  height: 80%;
   background-color: #fff;
   right: 4%;
   top: 6%;
   border-radius: 45px;
   justify-content: center;
   align-items: center;
-  z-index: 88;
 }
 .ProfileContent .loginControl .loginWrap {
   position: relative;
@@ -137,28 +154,30 @@ export default {
   top: 26%;
   left: 12%;
 }
-.loginContent .loginPhone {
-
-}
 .loginInput {
   width: 18vw;
   height: 3vw;
   border-radius: 15px;
   padding-left: 15px;
   margin: 1vw 0;
-  outline: #3ea055;
+  font-size: 1.2vw;
+  font-weight: bolder;
+}
+.loginInput:hover {
+  outline: #4cc552 solid 1px;
 }
 .loginPhone .getVerification {
   position: absolute;
-  width: 60%;
-  height: 6%;
-  left: 70%;
-  top: 9%;
+  width: 10vw;
+  height: 1vw;
+  right: 0vw;
+  top: 2.2vw;
   background-color: transparent;
   border: none;
   color: #c0c0c0;
-  font-size: 0.6vw;
+  font-size: .5vw;
   cursor: pointer;
+  line-height: 1vw;
 }
 .loginPhoneHint {
   width: 18vw;
@@ -166,7 +185,10 @@ export default {
   font-size: 1vw;
 }
 .loginPhoneHint >a {
-  color: #b1fb17;
+  color: #348017;
+}
+.loginPhoneHint >a:hover {
+  border-bottom: 2px solid #3ea055;
 }
 .loginSubmit {
   position: absolute;
@@ -183,5 +205,13 @@ export default {
 }
 .loginSubmit:hover {
   height: 3.6vw;
+}
+.loginSvg {
+  position: absolute;
+  width: 8vw;
+  height: 2.5vw;
+  bottom: 6.8vw;
+  right: 1.2vw;
+  cursor: pointer;
 }
 </style>

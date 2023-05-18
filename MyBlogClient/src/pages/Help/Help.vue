@@ -6,7 +6,6 @@
     </Header>
     <div class="HelpContent">
       <Nav></Nav>
-      <img src="../Help/images/helpBackground.jpg" alt="" class="HelpImg">
     </div>
   </div>
 </template>
@@ -38,12 +37,8 @@ export default {
 }
 .HelpContent {
   width: 100%;
-  height: 100%;
-}
-.HelpImg {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  opacity: .8;
+  height: 92.5vh;
+  background-image: url("../../pages/Help/images/helpBackground.jpg");
+  background-position: 60% 20%;
 }
 </style>

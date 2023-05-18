@@ -6,7 +6,6 @@
     </Header>
     <div class="IntContent">
       <Nav></Nav>
-      <img src="../Internet/images/intBackground.jpg" alt="" class="IntImg">
     </div>
   </div>
 </template>
@@ -38,12 +37,9 @@ export default {
 }
 .IntContent {
   width: 100%;
-  height: 100%;
+  height: 92.5vh;
+  background-image: url("../../pages/Internet/images/intBackground.jpg");
+  background-position: 60% 1%;
 }
-.IntImg {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  opacity: .8;
-}
+
 </style>

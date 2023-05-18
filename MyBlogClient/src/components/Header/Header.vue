@@ -25,8 +25,7 @@
       </div>
       <div class="right">
         <div class="rightContent" @click="goTO('/profile')">
-          <i class="iconfont icon-person"></i>
-          <img src="" alt="" style="display: none">
+          <i class="iconfont icon-person" title="个人信息"></i>
         </div>
       </div>
     </div>
@@ -199,7 +198,7 @@ export default {
 }
 .right .rightContent .icon-person:hover {
   font-size: 2.5vw;
-  color: black;
+  color: #e41b17;
 }
 
 </style>
