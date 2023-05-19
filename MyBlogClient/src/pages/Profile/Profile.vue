@@ -33,12 +33,7 @@
                       <input  class="loginInput" type="text" maxlength="11" placeholder="手机/邮箱/用户名" />
                     </div>
                     <div class="loginUsernamePwdWay">
-                      <input class="loginInput" type="text" maxlength="8" placeholder="密码" hidden="hidden">
                       <input class="loginInput" type="password" maxlength="8" placeholder="密码">
-                      <div class="switchButton">
-                        <div class="switchCircle"></div>
-                        <span class="switchText"></span>
-                      </div>
                     </div>
                     <div class="loginUsernameSvg">
                       <input class="loginInput" type="text" maxlength="11" placeholder="验证码">
@@ -105,15 +100,11 @@ export default {
   background-image: url("../../pages/Profile/images/profileBackground.jpg");
   background-position: 40% 15%;
 }
-/*.ProfileContent .proImg{*/
-/*  width: 100%;*/
-/*  height: 100%;*/
-/*}*/
 .ProfileContent .loginControl {
   display: flex;
   position: absolute;
   width: 30%;
-  height: 80%;
+  height: 40vw;
   background-color: #fff;
   right: 4%;
   top: 6%;
@@ -168,9 +159,9 @@ export default {
 }
 .loginPhone .getVerification {
   position: absolute;
-  width: 10vw;
+  width: 9vw;
   height: 1vw;
-  right: 0vw;
+  right: 0;
   top: 2.2vw;
   background-color: transparent;
   border: none;
@@ -210,7 +201,7 @@ export default {
   position: absolute;
   width: 8vw;
   height: 2.5vw;
-  bottom: 6.8vw;
+  bottom: 34%;
   right: 1.2vw;
   cursor: pointer;
 }

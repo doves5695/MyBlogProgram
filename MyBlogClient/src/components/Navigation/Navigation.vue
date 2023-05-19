@@ -67,7 +67,7 @@ export default {
   font-weight: bolder;
   animation: rotate 10s linear infinite;
   -webkit-animation: rotate 10s linear infinite;
-  color: #57feff;
+  color: #3bb9ff;
 }
 @keyframes rotate {
   0% { transform: rotate(0);}
@@ -84,9 +84,9 @@ export default {
   100% {transform: rotate(360deg);}
 }
 .navWrap .navControl .fengche:hover {
-  font-size: 4.1vw;
+  font-size: 4.2vw;
   font-weight: bolder;
-  color: #c0c0c0;
+  color: #157dec;
 }
 .navWrap .navContent {
   position: fixed;
@@ -103,7 +103,7 @@ export default {
   height: 6vh;
   text-align: center;
   line-height: 6vh;
-  border: 1px solid #fff;
+  border: 1px solid #e5e4e2;
   border-radius: 20px;
   margin: 0 1.8vw;
   font-size: 1vw;
@@ -113,7 +113,7 @@ export default {
   text-overflow:ellipsis;/* 超出部分显示省略号 */
   white-space: nowrap;/*规定段落中的文本不进行换行 */
   cursor: pointer;
-  background-color: #fff;
+  background-color: #e5e4e2;
 }
 .navWrap .navContent li:hover {
   overflow: visible;

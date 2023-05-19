@@ -25,7 +25,7 @@
       </div>
       <div class="right">
         <div class="rightContent" @click="goTO('/profile')">
-          <i class="iconfont icon-person" title="个人信息"></i>
+          <i class="iconfont icon-person-renwu" title="个人信息"></i>
         </div>
       </div>
     </div>
@@ -191,12 +191,12 @@ export default {
   justify-content: center;
   align-items: center;
 }
-.right .rightContent .icon-person {
+.right .rightContent .icon-person-renwu {
   font-size: 2vw;
   line-height: 5vh;
-  color: #c0c0c0;
+  color: #0c090a;
 }
-.right .rightContent .icon-person:hover {
+.right .rightContent .icon-person-renwu:hover {
   font-size: 2.5vw;
   color: #e41b17;
 }
