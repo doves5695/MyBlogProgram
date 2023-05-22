@@ -50,18 +50,18 @@ function testFind() {
         console.log('findOne()', error, user)
     })
 }
-testFind()
+// testFind()
 // 3. 通过Model实例findByIdAndUpdate更新某个数据
 function  testUpdate() {
     UserModel.findByIdAndUpdate({_id: '6469e8aa7807b42f7cddcc14'}, {name: 'jingrui'}, (error, user) => {
         console.log('findByIdAndUpdate()', error, user)
     })
 }
-testUpdate()
+// testUpdate()
 // 4. 通过Model实例remove删除匹配数据
 function testDelete() {
-    UserModel.remove({_id:'6469e90f3df70e41bcdb2c4b'}, (error, result) => {
+    UserModel.remove({_id:'646b1cca00f29a47782183a6'}, (error, result) => {
         console.log('remove()', error, result)
     })
 }
-// testDelete()
+testDelete()

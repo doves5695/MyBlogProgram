@@ -1,20 +1,34 @@
-var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
-var cookieParser = require('cookie-parser');
+var favicon = require('serve-favicon');
 var logger = require('morgan');
-var session = require('express-session')
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
+var session = require('express-session');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
-const bodyParser = require("body-parser");
 
 var app = express();
+/*
+app.all("*", function(req, res, next) {
+  if (!req.get("Origin")) return next();
+  // use "*" here to accept any origin
+  res.set("Access-Control-Allow-Origin", "*");
+  res.set("Access-Control-Allow-Methods", "GET");
+  res.set("Access-Control-Allow-Headers", "X-Requested-With, Content-Type");
+  // res.set('Access-Control-Allow-Max-Age', 3600);
+  if ("OPTIONS" === req.method) return res.send(200);
+  next();
+});
+*/
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+// uncomment after placing your favicon in /public
+//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -26,14 +40,17 @@ app.use(session({
   cookie: {maxAge: 1000*60*60*48 },  //设置maxAge是80000ms，即80s后session和相应的cookie失效过期
   resave: false,
   saveUninitialized: true,
-}))
+}));
+
 
 app.use('/', index);
 app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  next(createError(404));
+  var err = new Error('Not Found');
+  err.status = 404;
+  next(err);
 });
 
 // error handler

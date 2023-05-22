@@ -7,7 +7,7 @@
     <div class="HelpContent">
       <Nav></Nav>
       <Article>
-        <h2 slot="articleH2">对你一定有帮助的文章</h2>
+        <h2 slot="articleH2">对你一定有帮助的文章 </h2>
       </Article>
       <Aside></Aside>
     </div>
