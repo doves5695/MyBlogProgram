@@ -13,7 +13,7 @@
         </div>
       </div>
       <div class="mid">
-        <form class="search">
+<!--        <form class="search">
           <div class="searchLeft">
             <i class="iconfont sousuo"></i>
             <input type="search" class="searchContent" placeholder="搜索" style="outline: none; border-width: 0" >
@@ -21,7 +21,15 @@
           <div class="searchRight">
             <input type="submit" class="searchIcon" style="outline: none; border-width: 0" value="搜索">
           </div>
-        </form>
+        </form>-->
+        <div class="midContent">
+          <div class="contentLeft">
+            <i class="iconfont zhinengyouhua"></i>
+          </div>
+          <div class="contentRight">
+            <span>Intelligence Search For You</span>
+          </div>
+        </div>
       </div>
       <div class="right">
         <div class="rightContent" @click="goTO('/profile')">
@@ -64,7 +72,7 @@ export default {
 }
 .headerContent {
   position: relative;
-  width: 1500px;
+  width: 100%;
   height: 7vh;
   margin: 0 auto;
 }
@@ -92,7 +100,7 @@ export default {
   height: 5vh;
   justify-content: center;
   align-items: center;
-  margin-right: 40px;
+  margin-right: 35px;
 }
 .left .navIcon {
   display: flex;
@@ -118,60 +126,85 @@ export default {
 .mid {
   display: flex;
   position: absolute;
-  width: 50%;
+  width: 40%;
   height: 7vh;
   justify-content: center;
   align-items: center;
-  left: 25%;
+  left: 30%;
   margin: 0 20px;
 }
-.mid .search {
-  position: relative;
+.mid .midContent {
   display: flex;
-  width: 600px;
-  height: 5vh;
+  width: 70%;
+  height: 6vh;
   align-items: center;
-}
-.mid .search .searchLeft {
-  position: relative;
-  width: 85%;
-  height: 5vh;
-  border: 2px solid #e5e4e2;
-  border-right: 0;
-  border-radius: 30px 0 0 30px;
-}
-.mid .search .searchContent {
-  position: absolute;
-  width: 50%;
-  height: 5vh;
-  left: 40px;
-}
-.mid .search .sousuo {
-  position: absolute;
-  font-size: 1.8vw;
-  font-weight: bolder;
-  left: 0.75vw;
-  line-height: 5.5vh;
-}
-.mid .search .searchRight {
-   display: flex;
-   position: absolute;
-   width: 15%;
-   height: 5vh;
-   border: 2px solid #e5e4e2;
-   border-radius: 0 30px 30px 0;
-   right: 0;
- }
-.mid .search .searchRight .searchIcon {
-  width: 100%;
-  height: 5vh;
-  border-radius: 0 30px 30px 0;
+  justify-content: center;
   cursor: pointer;
-  font-size: 1.8vw;
-  font-weight: bolder;
-  line-height: 5vh;
-  font-family: "阿里妈妈数黑体 Bold";
 }
+.mid .contentLeft .zhinengyouhua {
+  color:  #3bb9ff;;
+  font-size: 2.5vw;
+  font-weight: bolder;
+}
+.mid .contentLeft .zhinengyouhua:hover {
+  font-size: 3vw;
+}
+.mid .contentRight span {
+  font-weight: bolder;
+  font-size: 1.5vw;
+  font-family: "阿里妈妈数黑体 Bold";
+  margin: 0 1vw;
+}
+.mid .contentRight span:hover {
+  font-size: 1.6vw;
+}
+/*.mid .search {*/
+/*  position: relative;*/
+/*  display: flex;*/
+/*  width: 600px;*/
+/*  height: 5vh;*/
+/*  align-items: center;*/
+/*}*/
+/*.mid .search .searchLeft {*/
+/*  position: relative;*/
+/*  width: 85%;*/
+/*  height: 5vh;*/
+/*  border: 2px solid #e5e4e2;*/
+/*  border-right: 0;*/
+/*  border-radius: 30px 0 0 30px;*/
+/*}*/
+/*.mid .search .searchContent {*/
+/*  position: absolute;*/
+/*  width: 50%;*/
+/*  height: 5vh;*/
+/*  left: 40px;*/
+/*}*/
+/*.mid .search .sousuo {*/
+/*  position: absolute;*/
+/*  font-size: 1.8vw;*/
+/*  font-weight: bolder;*/
+/*  left: 0.75vw;*/
+/*  line-height: 5.5vh;*/
+/*}*/
+/*.mid .search .searchRight {*/
+/*   display: flex;*/
+/*   position: absolute;*/
+/*   width: 15%;*/
+/*   height: 5vh;*/
+/*   border: 2px solid #e5e4e2;*/
+/*   border-radius: 0 30px 30px 0;*/
+/*   right: 0;*/
+/* }*/
+/*.mid .search .searchRight .searchIcon {*/
+/*  width: 100%;*/
+/*  height: 5vh;*/
+/*  border-radius: 0 30px 30px 0;*/
+/*  cursor: pointer;*/
+/*  font-size: 1.8vw;*/
+/*  font-weight: bolder;*/
+/*  line-height: 5vh;*/
+/*  font-family: "阿里妈妈数黑体 Bold";*/
+/*}*/
 
 /*右侧样式*/
 .right {

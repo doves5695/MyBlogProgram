@@ -44,7 +44,7 @@ export default {
 .navWrap {
   display: flex;
   position: fixed;
-  width: 100%;
+  width: 80%;
   height: 9vh;
   background-color: transparent;
   z-index: 99;
@@ -58,7 +58,7 @@ export default {
   height: 9vh;
   justify-content: center;
   align-items: center;
-  left: 1%;
+  left: 2%;
   cursor: pointer;
   z-index: 99;
 }
@@ -91,7 +91,7 @@ export default {
 .navWrap .navContent {
   position: fixed;
   display: flex;
-  width: 50vw;
+  width: 40vw;
   height: 6vh;
   justify-content: center;
   align-items: center;
@@ -105,7 +105,7 @@ export default {
   line-height: 6vh;
   border: 1px solid #e5e4e2;
   border-radius: 20px;
-  margin: 0 1.8vw;
+  margin: 0 1vw;
   font-size: 1vw;
   font-weight: bolder;
   font-family: '阿里妈妈东方大楷 Regular';
@@ -121,7 +121,7 @@ export default {
 .music {
   position: fixed;
   display: flex;
-  right: 25%;
+  right: 35%;
   width: 15%;
   height: 6vh;
   justify-content: center;
@@ -130,6 +130,6 @@ export default {
 }
 audio {
   height: 6vh;
-  margin: 0 1.8vw;
+  margin: 0 1vw;
 }
 </style>
