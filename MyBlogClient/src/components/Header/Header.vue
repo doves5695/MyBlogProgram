@@ -22,7 +22,7 @@
             <input type="submit" class="searchIcon" style="outline: none; border-width: 0" value="搜索">
           </div>
         </form>-->
-        <div class="midContent">
+        <div class="midContent" @click="goSearch('/search')">
           <div class="contentLeft">
             <i class="iconfont zhinengyouhua"></i>
           </div>
@@ -50,6 +50,9 @@ export default {
   methods: {
     goTO (path) {
       this.$router.replace(path)
+    },
+    goSearch (path) {
+      this.$router.push(path)
     }
   },
   props: {
@@ -130,7 +133,7 @@ export default {
   height: 7vh;
   justify-content: center;
   align-items: center;
-  left: 30%;
+  left: 28%;
   margin: 0 20px;
 }
 .mid .midContent {

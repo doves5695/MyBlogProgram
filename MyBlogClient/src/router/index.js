@@ -8,6 +8,7 @@ import JavaScript from '../pages/JavaScript/JavaScript.vue'
 import VueFramework from '../pages/VueFramework/VueFramework.vue'
 import internet from '../pages/Internet/Internet.vue'
 import Help from '../pages/Help/Help.vue'
+import Search from '../pages/Search/Search.vue'
 
 Vue.use(VueRouter)
 
@@ -40,6 +41,9 @@ export default new VueRouter({
     }, {
       path: '/help',
       component: Help
+    }, {
+      path: '/search',
+      component: Search
     }
 
   ]
