@@ -5,8 +5,8 @@
         <i class="iconfont fanhui"></i>
       </div>
       <div class="contentTop">
-        <form>
-          <input type="text" placeholder="请输入搜索内容" style="border-width: 0">
+        <form @submit.prevent="fetchAnswer">
+          <input type="text" placeholder="请输入搜索内容" style="border-width: 0" v-model="question">
         </form>
         <div class="gotoSearch">
           <i class="iconfont paper-full"></i>
@@ -22,15 +22,34 @@
 
 <script>
 import Nav from '../../components/Navigation/Navigation.vue'
-
 export default {
+  data () {
+    return {
+      question: ''
+    }
+  },
   components: {Nav},
   methods: {
     goTO (path) {
       this.$router.replace(path)
+    },
+    async fetchAnswer () {
+      const question = this.question
+      try {
+        const res = await fetch('http://localhost:4501', {
+          method: 'POST',
+          headers: {
+            'ContentType': 'application/json'
+          },
+          body: JSON.stringify({
+            question: question
+          })
+        })
+        console.log(res)
+      } catch (error) {}
+      console.log(question)
     }
   }
-
 }
 </script>
 
@@ -123,15 +142,15 @@ export default {
 .contentBottom {
   position: absolute;
   display: flex;
-  width: 90%;
+  width: 95%;
   height: 90%;
   justify-content: center;
   align-items: center;
-  bottom: 2%;
+  bottom: 1%;
 }
 .contentBottom .displayContent {
-  width: 90%;
-  height: 90%;
+  width: 95%;
+  height: 95%;
   background-color: #6a287e;
   border-radius: 20px;
   color: #fff;
