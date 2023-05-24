@@ -1,11 +1,15 @@
-var express = require('express');
-var router = express.Router();
+let express = require('express');
+let router = express.Router();
 const md5 = require('blueimp-md5')
 const models = require('../db/models')
 const UserModel = models.getModel('user')
 var svgCaptcha = require('svg-captcha')
 const users = {}
 const sms_until = require('../utils/sms_util')
+let dotenv = require('dotenv')
+let cors = require('cors')
+const { Configuration, OpenAIApi } = require("openai");
+const bodyParser = require("body-parser");
 
 
 // 密码登录

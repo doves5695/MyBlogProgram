@@ -15,7 +15,7 @@ const mongoose = require('mongoose')
 mongoose.connect('mongodb://127.0.0.1:27017/myblog_server')
 const conn = mongoose.connection
 conn.on('connected', function () {
-    console.log('数据库连接成功!')
+    console.log('数据库连接成功!!!')
 })
 
 // 2. 得到对应特定集合的Model: UserModel

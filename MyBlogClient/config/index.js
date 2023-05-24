@@ -15,7 +15,7 @@ module.exports = {
         target: 'http://localhost:4500',  //后端请求服务域名和端口
         changeOrigin: true,   //设置请求头
         pathRewrite: {
-          '^/api': '/api'   //路径重写  前端api 对应 后端/api
+          '^/api': ''   //路径重写  前端api 对应 后端/api
         },
       }
     },

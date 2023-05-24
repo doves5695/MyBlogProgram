@@ -36,13 +36,17 @@ export default {
     async fetchAnswer () {
       const question = this.question
       try {
-        const res = await fetch('http://localhost:4501', {
+        const res = await fetch('http://localhost:8081', {
           method: 'POST',
           headers: {
-            'ContentType': 'application/json'
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
           },
+          // header: {
+          //   'Access-Control-Allow-Origin': '*'
+          // },
           body: JSON.stringify({
-            question: question
+            question: this.question
           })
         })
         console.log(res)
