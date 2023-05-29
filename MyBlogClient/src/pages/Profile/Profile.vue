@@ -17,7 +17,9 @@
                 <div class="loginPhone" v-show="loginWay">
                   <div class="loginPhoneMessage">
                     <input class="loginInput" type="tel" maxlength="11" placeholder="手机号码" v-model="phone">
-                    <button class="getVerification" :class="{right_phone: rightPhone}">获取验证码</button>
+                    <button :disabled="!rightPhone" class="getVerification"
+                            :class="{right_phone: rightPhone}" @click.prevent="getCode">
+                      {{ computeTime > 0 ? `已发送(${computeTime}s)` : '获取验证码'}}</button>
                   </div>
                   <div class="loginPhoneVerification">
                     <input class="loginInput" type="tel" maxlength="4" placeholder="验证码">
@@ -57,8 +59,9 @@ import Nav from '../../components/Navigation/Navigation.vue'
 export default {
   data () {
     return {
-      loginWay: true,
-      phone: ''
+      loginWay: true, // 登录选择
+      phone: '', // 电话号
+      computeTime: 0 // 计时的时间
     }
   },
   computed: {
@@ -71,6 +74,17 @@ export default {
     Header
   },
   methods: {
+    getCode () {
+      if (!this.computeTime) {
+        this.computeTime = 30
+        const intervalId = setInterval(() => {
+          this.computeTime--
+          if (this.computeTime === 0) {
+            clearInterval(intervalId)
+          }
+        }, 1000)
+      }
+    }
   }
 }
 </script>
