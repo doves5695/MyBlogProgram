@@ -16,8 +16,8 @@
               <form>
                 <div class="loginPhone" v-show="loginWay">
                   <div class="loginPhoneMessage">
-                    <input class="loginInput" type="tel" maxlength="11" placeholder="手机号码">
-                    <button class="getVerification">获取验证码</button>
+                    <input class="loginInput" type="tel" maxlength="11" placeholder="手机号码" v-model="phone">
+                    <button class="getVerification" :class="{right_phone: rightPhone}">获取验证码</button>
                   </div>
                   <div class="loginPhoneVerification">
                     <input class="loginInput" type="tel" maxlength="4" placeholder="验证码">
@@ -57,7 +57,13 @@ import Nav from '../../components/Navigation/Navigation.vue'
 export default {
   data () {
     return {
-      loginWay: true
+      loginWay: true,
+      phone: ''
+    }
+  },
+  computed: {
+    rightPhone () {
+      return /^1\d{10}$/.test(this.phone)
     }
   },
   components: {
@@ -169,6 +175,10 @@ export default {
   font-size: .5vw;
   cursor: pointer;
   line-height: 1vw;
+  font-weight: bolder;
+}
+.loginPhone .right_phone {
+  color: black;
 }
 .loginPhoneHint {
   width: 18vw;
