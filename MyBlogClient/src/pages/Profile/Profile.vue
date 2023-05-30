@@ -9,11 +9,11 @@
         <div class="loginWrap">
             <h1 class="loginLogo">MyBlog</h1>
             <div class="loginHeaderTitle">
-              <a href="javascript:;" :class="{on: loginWay}" @click="loginWay=true">短信登录</a>
-              <a href="javascript:;" :class="{on: !loginWay}" @click="loginWay=false">密码登录</a>
+              <a href="javascript:" :class="{on: loginWay}" @click="loginWay=true">短信登录</a>
+              <a href="javascript:" :class="{on: !loginWay}" @click="loginWay=false">密码登录</a>
             </div>
             <div class="loginContent">
-              <form>
+              <form @submit.prevent="login">
                 <div class="loginPhone" v-show="loginWay">
                   <div class="loginPhoneMessage">
                     <input class="loginInput" type="tel" maxlength="11" placeholder="手机号码" v-model="phone">
@@ -22,24 +22,24 @@
                       {{ computeTime > 0 ? `已发送(${computeTime}s)` : '获取验证码'}}</button>
                   </div>
                   <div class="loginPhoneVerification">
-                    <input class="loginInput" type="tel" maxlength="4" placeholder="验证码">
+                    <input class="loginInput" type="tel" maxlength="4" placeholder="验证码" v-model="code">
                   </div>
                   <div class="loginPhoneHint">
                     温馨提示: 您的手机号尚未注册,登录时将自动注册
-                    <a href="javascript:;">《用户服务协议》</a>
+                    <a href="javascript:">《用户服务协议》</a>
                   </div>
                 </div>
                 <div class="loginUsername" v-show="!loginWay">
                   <div>
                     <div class="loginUsernameMessage">
-                      <input  class="loginInput" type="text" maxlength="11" placeholder="手机/邮箱/用户名" />
+                      <input  class="loginInput" type="text" maxlength="11" placeholder="手机/邮箱/用户名" v-model="name"/>
                     </div>
                     <div class="loginUsernamePwdWay">
-                      <input class="loginInput" type="password" maxlength="8" placeholder="密码">
+                      <input class="loginInput" type="password" maxlength="8" placeholder="密码" v-model="pwd">
                     </div>
                     <div class="loginUsernameSvg">
-                      <input class="loginInput" type="text" maxlength="11" placeholder="验证码">
-                      <img class="loginSvg" src="./images/captcha.svg" alt="captcha">
+                      <input class="loginInput" type="text" maxlength="11" placeholder="验证码" v-model="captcha">
+                      <img class="loginSvg" src="http://localhost:4500/captcha" alt="captcha" @click="getCaptcha" ref="captcha">
                     </div>
                   </div>
                 </div>
@@ -49,31 +49,49 @@
         </div>
       </div>
     </div>
+    <AlertTip :alertText="alertText" v-show="alertShow" @closeTip="closeTip" />
   </div>
 </template>
 
 <script>
 import Header from '../../components/Header/Header.vue'
 import Nav from '../../components/Navigation/Navigation.vue'
+import AlertTip from '../../components/AlertTip/AlertTip.vue'
+import login from '../../components/Login/Login.vue'
 
 export default {
   data () {
     return {
       loginWay: true, // 登录选择
       phone: '', // 电话号
-      computeTime: 0 // 计时的时间
+      computeTime: 0, // 计时的时间
+      code: '', // 验证码
+      name: '', // 用户名
+      pwd: '', // 密码
+      captcha: '', // 图形验证码,
+      alertText: '', // 提示文本
+      alertShow: false // 是否显示警告框
     }
   },
   computed: {
+    // 验证计算属性手机号是否为11位
     rightPhone () {
       return /^1\d{10}$/.test(this.phone)
     }
   },
   components: {
+    AlertTip,
     Nav,
     Header
   },
   methods: {
+    // 提示框的显示
+    showAlert (alertText) {
+      this.alertShow = true
+      this.alertText = alertText
+    },
+
+    // 异步获取验证码
     getCode () {
       if (!this.computeTime) {
         this.computeTime = 30
@@ -84,7 +102,65 @@ export default {
           }
         }, 1000)
       }
+    },
+
+    // 异步登录
+    login () {
+      // loginway 为true的时候, 是手机号登录
+      if (this.loginWay) {
+        const {rightPhone, phone, code} = this
+        if (!this.rightPhone) {
+          // 手机号不正确
+          this.showAlert('手机号不正确')
+        } else if (!/^\d{4}$/.test(code)) {
+          // 验证码必须为4位
+          this.showAlert('验证码必须为4位')
+        }
+      } else {
+      // 否则为用户名登录
+        const {name, pwd, captcha} = this
+        if (!this.name) {
+          // 用户名必须是已存在的
+          this.showAlert('用户名必须是已存在的')
+        } else if (!this.pwd) {
+          // 密码不正确
+          this.showAlert('密码不正确')
+        } else if (!this.captcha) {
+          // 验证码不正确
+          this.showAlert('验证码不正确')
+        }
+      }
+    },
+
+    // 关闭警告框
+    closeTip () {
+      this.alertText = ''
+      this.alertShow = false
+    },
+
+    getCaptcha () {
+      this.$refs.captcha.src = 'http://localhost:4500/captcha?time=' + Date.now()
     }
+
+    // 登录提示框
+    /* open () { */
+    /*   this.$confirm('是否登录?', '提示', { */
+    /*     confirmButtonText: '确定', */
+    /*     cancelButtonText: '取消', */
+    /*     type: 'warning', */
+    /*     center: true */
+    /*   }).then(() => { */
+    /*     this.$message({ */
+    /*       type: 'success', */
+    //       message: '登录成功!'
+    //     })
+    //   }).catch(() => {
+    //     this.$message({
+    //       type: 'info',
+    //       message: '已取消登录'
+    //     })
+    //   })
+    // }
   }
 }
 </script>
