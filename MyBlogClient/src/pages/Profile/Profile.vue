@@ -57,7 +57,7 @@
 import Header from '../../components/Header/Header.vue'
 import Nav from '../../components/Navigation/Navigation.vue'
 import AlertTip from '../../components/AlertTip/AlertTip.vue'
-import login from '../../components/Login/Login.vue'
+import { reqSendCode, reqSmsLogin, reqPwdLogin } from '../../api'
 
 export default {
   data () {
@@ -92,20 +92,29 @@ export default {
     },
 
     // 异步获取验证码
-    getCode () {
+    async getCode () {
       if (!this.computeTime) {
         this.computeTime = 30
-        const intervalId = setInterval(() => {
+        this.intervalId = setInterval(() => {
           this.computeTime--
           if (this.computeTime === 0) {
-            clearInterval(intervalId)
+            clearInterval(this.intervalId)
           }
         }, 1000)
+
+        // 发送ajax请求
+        const result = await reqSendCode(this.phone)
+        if (result.code === 1) {
+          // 显示错误提示
+          this.showAlert(result.msg)
+
+        }
       }
     },
 
     // 异步登录
-    login () {
+    async login () {
+      let result
       // loginway 为true的时候, 是手机号登录
       if (this.loginWay) {
         const {rightPhone, phone, code} = this
@@ -116,6 +125,8 @@ export default {
           // 验证码必须为4位
           this.showAlert('验证码必须为4位')
         }
+        // 发送ajax请求验证码登录
+        result = await reqSmsLogin(phone, code)
       } else {
       // 否则为用户名登录
         const {name, pwd, captcha} = this
@@ -129,6 +140,24 @@ export default {
           // 验证码不正确
           this.showAlert('验证码不正确')
         }
+        // 发送ajax请求密码登录
+        result = await reqSmsLogin({name, pwd, captcha})
+      }
+      // 停止倒计时
+      if (this.computeTime) {
+        this.computeTime = 0
+        clearInterval(this.intervalId)
+        this.intervalId = null
+      }
+      // 根据结果处理数据
+      if (result.code === 0) {
+        const user = result.data
+        // 将use保存至vuex的state
+        // 去个登录后的页面
+      } else {
+        const msg = result.msg
+        this.getCaptcha()
+        this.showAlert(msg)
       }
     },
 
@@ -138,6 +167,7 @@ export default {
       this.alertShow = false
     },
 
+    // 获取验证码
     getCaptcha () {
       this.$refs.captcha.src = 'http://localhost:4500/captcha?time=' + Date.now()
     }
