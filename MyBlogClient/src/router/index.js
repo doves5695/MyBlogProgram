@@ -9,6 +9,7 @@ import VueFramework from '../pages/VueFramework/VueFramework.vue'
 import internet from '../pages/Internet/Internet.vue'
 import Help from '../pages/Help/Help.vue'
 import Search from '../pages/Search/Search.vue'
+import AfterLogin from '../pages/AfterLogin/AfterLogin.vue'
 
 Vue.use(VueRouter)
 
@@ -23,6 +24,9 @@ export default new VueRouter({
     }, {
       path: '/profile',
       component: Profile
+    }, {
+      path: '/afterlogin',
+      component: AfterLogin
     }, {
       path: '/html',
       component: Html
