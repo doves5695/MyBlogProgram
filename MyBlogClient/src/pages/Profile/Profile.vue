@@ -107,7 +107,12 @@ export default {
         if (result.code === 1) {
           // 显示错误提示
           this.showAlert(result.msg)
-
+          // 停止计时
+          if (this.computeTime) {
+            this.computeTime = 0
+            clearInterval(this.intervalId)
+            this.intervalId = undefined
+          }
         }
       }
     },
@@ -115,49 +120,61 @@ export default {
     // 异步登录
     async login () {
       let result
-      // loginway 为true的时候, 是手机号登录
-      if (this.loginWay) {
+      // 前台表单验证
+      if (this.loginWay) { // 短信登陆
         const {rightPhone, phone, code} = this
         if (!this.rightPhone) {
           // 手机号不正确
           this.showAlert('手机号不正确')
+          return
         } else if (!/^\d{4}$/.test(code)) {
-          // 验证码必须为4位
-          this.showAlert('验证码必须为4位')
+          // 验证必须是4位数字
+          this.showAlert('验证必须是4位数字')
+          return
         }
-        // 发送ajax请求验证码登录
+        // 发送ajax请求短信登陆
         result = await reqSmsLogin(phone, code)
-      } else {
-      // 否则为用户名登录
+      } else { // 密码登陆
         const {name, pwd, captcha} = this
         if (!this.name) {
-          // 用户名必须是已存在的
-          this.showAlert('用户名必须是已存在的')
+          // 用户名必须指定
+          this.showAlert('用户名必须指定')
+          return
         } else if (!this.pwd) {
-          // 密码不正确
-          this.showAlert('密码不正确')
+          // 密码必须指定
+          this.showAlert('密码必须指定')
+          return
         } else if (!this.captcha) {
-          // 验证码不正确
-          this.showAlert('验证码不正确')
+          // 验证码必须指定
+          this.showAlert('验证码必须指定')
+          return
         }
-        // 发送ajax请求密码登录
-        result = await reqSmsLogin({name, pwd, captcha})
+        // 发送ajax请求密码登陆
+        result = await reqPwdLogin({name, pwd, captcha})
       }
-      // 停止倒计时
+
+      // 停止计时
       if (this.computeTime) {
         this.computeTime = 0
         clearInterval(this.intervalId)
-        this.intervalId = null
+        this.intervalId = undefined
       }
-      // 根据结果处理数据
+
+      // 根据结果数据处理
       if (result.code === 0) {
         const user = result.data
-        // 将use保存至vuex的state
-        // 去个登录后的页面
+        // 将user保存到vuex的state
+        this.$store.dispatch('recordUser', user)
+        // 去个人中心界面
+        await this.$router.push('/userinfo')
       } else {
-        const msg = result.msg
+        // 显示新的图片验证码
         this.getCaptcha()
+        // 显示警告提示
+        const msg = result.msg
         this.showAlert(msg)
+        // 清空验证码
+        this.captcha = ''
       }
     },
 
@@ -171,26 +188,6 @@ export default {
     getCaptcha () {
       this.$refs.captcha.src = 'http://localhost:4500/captcha?time=' + Date.now()
     }
-
-    // 登录提示框
-    /* open () { */
-    /*   this.$confirm('是否登录?', '提示', { */
-    /*     confirmButtonText: '确定', */
-    /*     cancelButtonText: '取消', */
-    /*     type: 'warning', */
-    /*     center: true */
-    /*   }).then(() => { */
-    /*     this.$message({ */
-    /*       type: 'success', */
-    //       message: '登录成功!'
-    //     })
-    //   }).catch(() => {
-    //     this.$message({
-    //       type: 'info',
-    //       message: '已取消登录'
-    //     })
-    //   })
-    // }
   }
 }
 </script>

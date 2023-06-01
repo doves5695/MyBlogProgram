@@ -35,40 +35,40 @@
 
       <section class="selector">
         <div class="Wrap" @click="To('/js')">
-          <img class="lax lax_preset_blurOur:180.5:20 lax_preset_zigzag:170:200"
+          <img class="lax lax_preset_blurOut:180.5:20 lax_preset_zigzag:170:200"
                src="./images/js.jpg" alt="" >
           <div class="text">
-            <h1 class="lax lax_preset_blurOur:180.5:20 lax_preset_zigzag:170:200 lax_preset_jiggle:50:20">JavaScript</h1>
+            <h1 class="lax lax_preset_blurOut:180.5:20 lax_preset_zigzag:170:200 lax_preset_jiggle:50:20">JavaScript</h1>
           </div>
         </div>
       </section>
 
       <section class="selector">
         <div class="Wrap" @click="To('/vue')">
-          <img class="lax lax_preset_blurOur:180.5:20 lax_preset_zigzag:170:200"
+          <img class="lax lax_preset_blurOut:180.5:20 lax_preset_zigzag:170:200"
                src="./images/Vue.jpg" alt="" >
           <div class="text">
-            <h1 class="lax lax_preset_blurOur:180.5:20 lax_preset_zigzag:170:200 lax_preset_jiggle:50:20">Reactive Components for Modern Web Interfaces</h1>
+            <h1 class="lax lax_preset_blurOut:180.5:20 lax_preset_zigzag:170:200 lax_preset_jiggle:50:20">Reactive Components for Modern Web Interfaces</h1>
           </div>
         </div>
       </section>
 
       <section class="selector">
         <div class="Wrap"  @click="To('/internet')">
-          <img class="lax lax_preset_blurOur:180.5:20 lax_preset_zigzag:170:200"
+          <img class="lax lax_preset_blurOut:180.5:20 lax_preset_zigzag:170:200"
                src="./images/Internet.jpg" alt="">
           <div class="text">
-            <h1 class="lax lax_preset_blurOur:180.5:20 lax_preset_zigzag:170:200 lax_preset_jiggle:50:20">Computer NetWork</h1>
+            <h1 class="lax lax_preset_blurOut:180.5:20 lax_preset_zigzag:170:200 lax_preset_jiggle:50:20">Computer NetWork</h1>
           </div>
         </div>
       </section>
 
       <section class="selector">
         <div class="Wrap" @click="To('/help')">
-          <img class="lax lax_preset_blurOur:180.5:20 lax_preset_zigzag:170:200"
+          <img class="lax lax_preset_blurOut:180.5:20 lax_preset_zigzag:170:200"
                src="./images/help.jpg" alt="" >
           <div class="text">
-            <h1 class="lax lax_preset_blurOur:180.5:20 lax_preset_zigzag:170:200 lax_preset_jiggle:50:20">There must be something that can help you</h1>
+            <h1 class="lax lax_preset_blurOut:180.5:20 lax_preset_zigzag:170:200 lax_preset_jiggle:50:20">There must be something that can help you</h1>
           </div>
         </div>
       </section>

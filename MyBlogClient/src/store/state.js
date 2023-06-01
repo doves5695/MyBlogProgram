@@ -1,5 +1,5 @@
 // 状态对象
 
 export default {
-  userInfo: {}
+  userInfo: {} // 用户信息
 }
