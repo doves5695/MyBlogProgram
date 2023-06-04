@@ -4,6 +4,7 @@ const md5 = require('blueimp-md5')
 const models = require('../db/models')
 const UserModel = models.getModel('user')
 var svgCaptcha = require('svg-captcha')
+const _filter = {'pwd': 0, '__v': 0} // 查询时过滤掉
 const users = {}
 const sms_until = require('../utils/sms_util')
 let dotenv = require('dotenv')
@@ -13,7 +14,7 @@ const bodyParser = require("body-parser");
 
 
 // 密码登录
-router.post('/login_pwd', function (req,res) {
+router.post('/login_pwd', function (req, res) {
   const name = req.body.name
   const pwd = md5(req.body.pwd)
   const captcha = req.body.captcha.toLowerCase()
@@ -48,6 +49,18 @@ router.post('/login_pwd', function (req,res) {
   })
 })
 
+// 根据session中的userid, 查询user
+router.get('/usersession', function (req, res) {
+  const userid = req.session.userid
+  UserModel.findOne({_id: userid}, _filter, function (err, user) {
+    if (!user) {
+      delete req.session.userid
+      res.send({code:1, msg:'请先进行登录'})
+    } else {
+      res.send({code:0, data: user})
+    }
+  })
+})
 
 // 一次性图形验证码
 router.get('/captcha', function (req, res) {
@@ -64,7 +77,7 @@ router.get('/captcha', function (req, res) {
 
 
 // 发送短信验证码
-router.get('/sendcode', function (req,res) {
+router.get('/sendcode', function (req, res) {
   let phone = req.query.phone;
 
   let code = sms_until.randomCode(4);
@@ -112,11 +125,76 @@ router.post('/login_sms',function (req, res) {
 
 
 // 退出登录
-router.get('/logout',function (req,res) {
+router.get('/logout',function (req, res) {
   delete req.session.userid
 
   res.send({code:0})
 })
+
+// 获取home页面的样式信息
+router.get('/homeinfo', function (req, res) {
+  setTimeout(function () {
+    const data = require('../data/homeInfo.json')
+    res.send({code: 0, data})
+  }, 300)
+})
+
+// 获取userinfo页面的相关信息
+router.get('/afterlogin', function (req, res) {
+  setTimeout(function () {
+    const data = require('../data/afterLoginInfo.json')
+    res.send({code:0, data})
+  }, 300)
+})
+
+// 获取文章列表信息
+router.get('/articlelist', function (req, res) {
+  setTimeout(function () {
+    const data = require('../data/articleList.json')
+    res.send({code:0, data})
+  }, 300)
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // ai搜索
 // dotenv.config()

@@ -3,13 +3,15 @@
     <Header title="MyBlog">
       <i class="iconfont home" slot="goWhere"></i>
       <i class="iconfont shuben" slot="icon"></i>
+      <i class="iconfont icon-person-renwu" title="个人信息" slot="personLogin" v-if="!userInfo._id"></i>
+      <img class="loginAvatar" src="../UserInfo/images/dogAvatar.jpg" alt="" slot="personLogin" v-else>
     </Header>
     <div class="Content">
       <section class="selector">
-          <img class="lax lax_preset_blurInOut:180.5:20 lax_preset_slideY:722:95 lax_preset_slideX:722:95"  src="./images/home.jpg" alt="">
-          <div class="text" >
-            <h1 class="lax lax_preset_scaleInOut:158:0.5 lax_preset_fadeInOut:159:0">Welcome to my blog, Next let me take you to learn the front end</h1>
-          </div>
+        <img class="lax lax_preset_blurInOut:180.5:20 lax_preset_slideY:722:95 lax_preset_slideX:722:95"  src="./images/home.jpg" alt="">
+        <div class="text" >
+          <h1 class="lax lax_preset_scaleInOut:158:0.5 lax_preset_fadeInOut:159:0">Welcome to my blog, Next let me take you to learn the front end</h1>
+        </div>
         <i class="iconfont qicheqianlian- lax lax_preset_fadeInOut:180.5:0 lax_preset_zigzag:200:236"></i>
       </section>
 
@@ -80,6 +82,7 @@
 <script>
 import Header from '../../components/Header/Header.vue'
 import Nav from '../../components/Navigation/Navigation.vue'
+import {mapState} from 'vuex'
 export default {
   components: {
     Header,
@@ -89,6 +92,9 @@ export default {
     To (path) {
       this.$router.replace(path)
     }
+  },
+  computed: {
+    ...mapState(['userInfo'])
   }
 }
 </script>
@@ -117,8 +123,8 @@ section:nth-child(3) {
   background-color: #437C17;
 }
 section:nth-child(4) {
-   background-color: #254117;
- }
+  background-color: #254117;
+}
 section:nth-child(5) {
   background-color: #4aa02c;
 }
@@ -168,5 +174,18 @@ img {
   font-size: 2.2vw;
   color: #b6b6b4;
   margin-right: 2px;
+}
+.icon-person-renwu {
+  font-size: 2vw;
+  line-height: 5vh;
+  color: #0c090a;
+}
+.icon-person-renwu:hover {
+  font-size: 2.5vw;
+}
+.loginAvatar {
+  width: 2.5vw;
+  height: 2.5vw;
+  opacity: 1;
 }
 </style>

@@ -13,15 +13,6 @@
         </div>
       </div>
       <div class="mid">
-<!--        <form class="search">
-          <div class="searchLeft">
-            <i class="iconfont sousuo"></i>
-            <input type="search" class="searchContent" placeholder="搜索" style="outline: none; border-width: 0" >
-          </div>
-          <div class="searchRight">
-            <input type="submit" class="searchIcon" style="outline: none; border-width: 0" value="搜索">
-          </div>
-        </form>-->
         <div class="midContent" @click="goSearch('/search')">
           <div class="contentLeft">
             <i class="iconfont zhinengyouhua"></i>
@@ -32,9 +23,9 @@
         </div>
       </div>
       <div class="right">
-        <div class="rightContent" @click="goTO('/profile')">
-          <i class="iconfont icon-person-renwu" title="个人信息"></i>
-        </div>
+        <router-link class="rightContent" :to="!userInfo._id ? '/profile' : '/userinfo'">
+          <slot name="personLogin"></slot>
+        </router-link>
       </div>
     </div>
   </div>
@@ -42,11 +33,10 @@
 
 <script>
 
-import Nav from '../Navigation/Navigation.vue'
+import {mapState} from 'vuex'
 
 export default {
   name: 'Header',
-  components: {Nav},
   methods: {
     goTO (path) {
       this.$router.replace(path)
@@ -57,6 +47,9 @@ export default {
   },
   props: {
     title: String
+  },
+  computed: {
+    ...mapState(['userInfo'])
   }
 }
 </script>
@@ -226,15 +219,6 @@ export default {
   cursor: pointer;
   justify-content: center;
   align-items: center;
-}
-.right .rightContent .icon-person-renwu {
-  font-size: 2vw;
-  line-height: 5vh;
-  color: #0c090a;
-}
-.right .rightContent .icon-person-renwu:hover {
-  font-size: 2.5vw;
-  color: #e41b17;
 }
 
 </style>

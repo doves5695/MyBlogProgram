@@ -37,9 +37,9 @@ export default {
 }
 .tip_text_container {
   position: absolute;
-  top: 18%;
+  top: 35%;
   left: 25%;
-  margin-top: 10vw;
+  margin-top: 3vw;
   margin-left: 15vw;
   width: 20%;
   animation: tipMove .4s;

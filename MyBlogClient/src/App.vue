@@ -5,8 +5,15 @@
 </template>
 
 <script>
+import {mapActions} from 'vuex'
 export default {
-  name: 'App'
+  name: 'App',
+  computed: {
+    ...mapActions(['getUserInfo'])
+  },
+  mounted () {
+    this.$store.dispatch('getUserInfo')
+  }
 }
 </script>
 

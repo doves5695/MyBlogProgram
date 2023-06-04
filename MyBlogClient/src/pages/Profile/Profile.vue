@@ -2,6 +2,8 @@
   <div>
     <Header title="PersonalCenter">
       <i class="iconfont home" slot="goWhere"></i>
+      <i class="iconfont icon-person-renwu" title="个人信息" slot="personLogin" v-if="!userInfo._id"></i>
+      <img class="loginAvatar" src="../UserInfo/images/dogAvatar.jpg" alt="" slot="personLogin" v-else>
     </Header>
     <Nav></Nav>
     <div class="ProfileContent">
@@ -58,6 +60,7 @@ import Header from '../../components/Header/Header.vue'
 import Nav from '../../components/Navigation/Navigation.vue'
 import AlertTip from '../../components/AlertTip/AlertTip.vue'
 import { reqSendCode, reqSmsLogin, reqPwdLogin } from '../../api'
+import {mapState} from 'vuex'
 
 export default {
   data () {
@@ -77,7 +80,8 @@ export default {
     // 验证计算属性手机号是否为11位
     rightPhone () {
       return /^1\d{10}$/.test(this.phone)
-    }
+    },
+    ...mapState(['userInfo'])
   },
   components: {
     AlertTip,
@@ -200,6 +204,11 @@ export default {
 .home:hover {
   font-size: 2.5vw;
   color: #848482;
+}
+.loginAvatar {
+  width: 2.5vw;
+  height: 2.5vw;
+  opacity: 1;
 }
 .loginHeaderTitle >a {
   color: black;
@@ -331,5 +340,18 @@ export default {
   bottom: 34%;
   right: 1.2vw;
   cursor: pointer;
+}
+.icon-person-renwu {
+  font-size: 2vw;
+  line-height: 5vh;
+  color: #0c090a;
+}
+.icon-person-renwu:hover {
+  font-size: 2.5vw;
+}
+.loginAvatar {
+  width: 2.5vw;
+  height: 2.5vw;
+  opacity: 1;
 }
 </style>

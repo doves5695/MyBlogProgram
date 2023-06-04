@@ -3,12 +3,12 @@
     <Header title="CSS">
       <i class="iconfont OA-back" slot="goWhere" @click="$router.back()"></i>
       <i class="iconfont css" slot="icon"></i>
+      <i class="iconfont icon-person-renwu" title="个人信息" slot="personLogin" v-if="!userInfo._id"></i>
+      <img class="loginAvatar" src="../UserInfo/images/dogAvatar.jpg" alt="" slot="personLogin" v-else>
     </Header>
     <div class="CssContent">
       <Nav></Nav>
-      <Article>
-        <h2 slot="articleH2">关于CSS的文章</h2>
-      </Article>
+      <Article></Article>
       <Aside></Aside>
     </div>
   </div>
@@ -19,6 +19,7 @@ import Header from '../../components/Header/Header.vue'
 import Nav from '../../components/Navigation/Navigation.vue'
 import Article from '../../components/Article/Article.vue'
 import Aside from '../../components/Aside/Aside.vue'
+import {mapState} from 'vuex'
 
 export default {
   components: {
@@ -26,6 +27,9 @@ export default {
     Nav,
     Article,
     Aside
+  },
+  computed: {
+    ...mapState(['userInfo'])
   }
 }
 </script>
@@ -53,5 +57,17 @@ export default {
   background-position: 50%;
   background-size: 135vw;
 }
-
+.icon-person-renwu {
+  font-size: 2vw;
+  line-height: 5vh;
+  color: #0c090a;
+}
+.icon-person-renwu:hover {
+  font-size: 2.5vw;
+}
+.loginAvatar {
+  width: 2.5vw;
+  height: 2.5vw;
+  opacity: 1;
+}
 </style>

@@ -1,22 +1,93 @@
 <template>
   <div class="article">
     <div class="articleContent">
-      <div class="articleContentWrap">
+      <div class="articleContentWrap" v-for="(articleList, index) in articleLists" :key="index">
         <div class="articleContentLeft">
           <img src="./images/v2-5fb13110e1de13d4c11e6e7f5b8026da_r.jpg" alt="">
         </div>
         <div class="articleContentRight">
-          <slot name="articleH2"></slot>
-          <span>吧啦吧啦吧啦吧啦吧啦吧啦吧啦啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦</span>
+          <h2>{{ articleList.title }}</h2>
+          <span>{{ articleList.explain }}</span>
         </div>
       </div>
+<!--      <div class="articleContentWrap">-->
+<!--        <div class="articleContentLeft">-->
+<!--          <img src="./images/v2-5fb13110e1de13d4c11e6e7f5b8026da_r.jpg" alt="">-->
+<!--        </div>-->
+<!--        <div class="articleContentRight">-->
+<!--          <slot name="articleH2"></slot>-->
+<!--          <span>吧啦吧啦吧啦吧啦吧啦吧啦吧啦啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦</span>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="articleContentWrap">-->
+<!--        <div class="articleContentLeft">-->
+<!--          <img src="./images/v2-5fb13110e1de13d4c11e6e7f5b8026da_r.jpg" alt="">-->
+<!--        </div>-->
+<!--        <div class="articleContentRight">-->
+<!--          <slot name="articleH2"></slot>-->
+<!--          <span>吧啦吧啦吧啦吧啦吧啦吧啦吧啦啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦</span>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="articleContentWrap">-->
+<!--        <div class="articleContentLeft">-->
+<!--          <img src="./images/v2-5fb13110e1de13d4c11e6e7f5b8026da_r.jpg" alt="">-->
+<!--        </div>-->
+<!--        <div class="articleContentRight">-->
+<!--          <slot name="articleH2"></slot>-->
+<!--          <span>吧啦吧啦吧啦吧啦吧啦吧啦吧啦啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦</span>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="articleContentWrap">-->
+<!--        <div class="articleContentLeft">-->
+<!--          <img src="./images/v2-5fb13110e1de13d4c11e6e7f5b8026da_r.jpg" alt="">-->
+<!--        </div>-->
+<!--        <div class="articleContentRight">-->
+<!--          <slot name="articleH2"></slot>-->
+<!--          <span>吧啦吧啦吧啦吧啦吧啦吧啦吧啦啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦</span>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="articleContentWrap">-->
+<!--        <div class="articleContentLeft">-->
+<!--          <img src="./images/v2-5fb13110e1de13d4c11e6e7f5b8026da_r.jpg" alt="">-->
+<!--        </div>-->
+<!--        <div class="articleContentRight">-->
+<!--          <slot name="articleH2"></slot>-->
+<!--          <span>吧啦吧啦吧啦吧啦吧啦吧啦吧啦啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦</span>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="articleContentWrap">-->
+<!--        <div class="articleContentLeft">-->
+<!--          <img src="./images/v2-5fb13110e1de13d4c11e6e7f5b8026da_r.jpg" alt="">-->
+<!--        </div>-->
+<!--        <div class="articleContentRight">-->
+<!--          <slot name="articleH2"></slot>-->
+<!--          <span>吧啦吧啦吧啦吧啦吧啦吧啦吧啦啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦</span>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="articleContentWrap">-->
+<!--        <div class="articleContentLeft">-->
+<!--          <img src="./images/v2-5fb13110e1de13d4c11e6e7f5b8026da_r.jpg" alt="">-->
+<!--        </div>-->
+<!--        <div class="articleContentRight">-->
+<!--          <slot name="articleH2"></slot>-->
+<!--          <span>吧啦吧啦吧啦吧啦吧啦吧啦吧啦啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦</span>-->
+<!--        </div>-->
+<!--      </div>-->
     </div>
   </div>
 </template>
 
 <script>
+import {mapState} from 'vuex'
+
 export default {
-  name: 'Article'
+  name: 'Article',
+  mounted () {
+    this.$store.dispatch('getArticleList')
+  },
+  computed: {
+    ...mapState(['articleLists'])
+  }
 }
 </script>
 
@@ -35,12 +106,13 @@ export default {
   width: 92%;
   height: 95%;
   border: 3px solid #c0c0c0;
+  overflow: hidden;
 }
 .articleContentWrap {
   position: relative;
   width: 100%;
   height: 15%;
-  margin: 0 0 2vw 0;
+  margin: 0 0 1px 0;
   border-bottom: 2px solid #c0c0c0;
 }
 .articleContentLeft {
@@ -54,13 +126,13 @@ export default {
 .articleContentLeft img {
   width: 80%;
   height: 80%;
-
+  opacity: 1;
 }
 .articleContentRight {
   position: absolute;
-  width: 20vw;
+  width: 25vw;
   height: 100%;
-  right: 10vw;
+  right: 6vw;
   top: 0;
   margin: 0 2vw;
   overflow: hidden;
@@ -73,7 +145,8 @@ export default {
 }
 .articleContentRight span {
   position: absolute;
-  left: 18%;
+  width: 30vw;
+  left: 10%;
   top: 30%;
   margin: 1.5vw 0;
 }
