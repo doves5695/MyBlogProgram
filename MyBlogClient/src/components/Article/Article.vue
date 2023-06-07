@@ -1,13 +1,13 @@
 <template>
   <div class="article">
-    <div class="articleContent">
-      <div class="articleContentWrap" v-for="(articleList, index) in articleLists" :key="index">
+    <div class="articleContent"  v-for="(articleList, index) in articleLists" :key="index">
+      <div class="articleContentWrap" v-for="(htmlList, index) in articleList.HtmlLists" :key="index">
         <div class="articleContentLeft">
           <img src="./images/v2-5fb13110e1de13d4c11e6e7f5b8026da_r.jpg" alt="">
         </div>
         <div class="articleContentRight">
-          <h2>{{ articleList.title }}</h2>
-          <span>{{ articleList.explain }}</span>
+          <h2>{{ htmlList.title }}</h2>
+          <span>{{ htmlList.explain }}</span>
         </div>
       </div>
 <!--      <div class="articleContentWrap">-->
@@ -104,14 +104,14 @@ export default {
 }
 .articleContent {
   width: 92%;
-  height: 95%;
+  height: 94%;
   border: 3px solid #c0c0c0;
-  overflow: hidden;
+  overflow-y: scroll;
 }
 .articleContentWrap {
   position: relative;
   width: 100%;
-  height: 15%;
+  height: 10vw;
   margin: 0 0 1px 0;
   border-bottom: 2px solid #c0c0c0;
 }
